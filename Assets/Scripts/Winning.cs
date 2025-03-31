@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Winning : MonoBehaviour // This script attached with the TriggerCube
@@ -15,14 +16,18 @@ public class Winning : MonoBehaviour // This script attached with the TriggerCub
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter Collision");
-        anim.SetBool("win", true);
+        if (other.tag == "Player")
+        {
+            anim.SetBool("win", true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit Collision");
-        anim.SetBool("win", false);
+        if (other.tag == "Player")
+        {
+            anim.SetBool("win", false);
+        }
     }
 
 
